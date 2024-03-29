@@ -38,6 +38,10 @@ dependencies:
   firebase_auth: ^4.17.9
   firebase_core: ^2.27.1
   google_sign_in: ^6.2.1
+  camera: ^0.10.5+9
+  tflite: ^1.0.2
+  image_picker: ^0.8.4+4
+
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +69,9 @@ flutter:
   assets:
     - images/Vector.png
     - images/google.png
+    - assets/model_unquant.tflite
+    - assets/labels.txt
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

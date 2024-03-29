@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shinespy/createaccountscreen.dart';
 import 'package:shinespy/loginscreen.dart';
+import 'package:shinespy/popup_screen.dart';
 import 'package:shinespy/signUpscreen.dart';
 import 'package:shinespy/welcome_screen.dart';
 
@@ -24,7 +25,7 @@ class shinespy extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.black,
       ),
-      home: WelcomeScreen(),
+      home: PopupScreen(),
     );
   }
 }

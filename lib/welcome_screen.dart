@@ -52,7 +52,7 @@ class WelcomeScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => popupscreen()),
+                        MaterialPageRoute(builder: (context) => PopupScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

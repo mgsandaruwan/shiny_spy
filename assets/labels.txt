@@ -1,0 +1,3 @@
+Dry(oilyness level 0)
+Normal(oilyness level 2)
+Oily(oilyness level 3)

@@ -1,8 +1,92 @@
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-
+import 'package:tflite/tflite.dart';
 import 'signUpscreen.dart';
 
-class popupscreen extends StatelessWidget {
+class PopupScreen extends StatefulWidget {
+  @override
+  _PopupScreenState createState() => _PopupScreenState();
+}
+
+class _PopupScreenState extends State<PopupScreen> {
+  CameraController? _controller;
+  bool _isReady = false;
+  String? _oilinessLevel = 'Unknown';
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeCamera();
+    _loadModel();
+  }
+
+  void _loadModel() async {
+    try {
+      String? res = await Tflite.loadModel(
+        model: 'assets/model_unquant.tflite',
+        labels: 'assets/labels.txt',
+      );
+      if (res != null) {
+        print('Model loaded successfully: $res');
+      } else {
+        print('Failed to load model.');
+      }
+    } catch (e) {
+      print('Failed to load model: $e');
+    }
+  }
+
+
+  Future<void> _initializeCamera() async {
+    final cameras = await availableCameras();
+    final camera = cameras.first;
+
+    _controller = CameraController(camera, ResolutionPreset.medium);
+    await _controller!.initialize();
+
+    if (!mounted) return;
+
+    setState(() {
+      _isReady = true;
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    Tflite.close();
+    super.dispose();
+  }
+
+
+  Future<void> _runInference(CameraImage cameraImage) async {
+    if (!_isReady) return;
+
+    final List<dynamic>? recognitions = await Tflite.runModelOnFrame(
+      bytesList: cameraImage.planes.map((plane) {
+        return plane.bytes;
+      }).toList(),
+      imageHeight: cameraImage.height,
+      imageWidth: cameraImage.width,
+      imageMean: 127.5,
+      imageStd: 127.5,
+      rotation: 90,
+      numResults: 1,
+      threshold: 0.1,
+      asynch: true, // Set this to true for asynchronous inference
+    );
+
+    if (recognitions != null && recognitions.isNotEmpty) {
+      setState(() {
+        _oilinessLevel = recognitions[0]['label'] ?? 'Unknown';
+      });
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -15,7 +99,7 @@ class popupscreen extends StatelessWidget {
     );
   }
 
-  contentBox(context) {
+  Widget contentBox(BuildContext context) {
     return Stack(
       children: <Widget>[
         Container(
@@ -31,26 +115,28 @@ class popupscreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.grey, // You can change the color of the rectangle
                 ),
-                child: Icon(
-                  Icons.camera_alt, // Camera icon
-                  size: 100,
-                  color: Colors.white,
-                ),
+                child: _isReady
+                    ? CameraPreview(_controller!)
+                    : Center(child: CircularProgressIndicator()),
               ),
               SizedBox(height: 30),
               Text(
                 'Your oiliness level is',
-                style: TextStyle(fontSize: 16,color: Color(0xFFFFFFFF)),
+                style: TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)),
               ),
               SizedBox(height: 20),
               Text(
-                'Level 01',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Color(0xFFEFE8A2)),
+                _oilinessLevel ?? 'Unknown',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFEFE8A2),
+                ),
               ),
               SizedBox(height: 60),
               Text(
                 'To get the detailed report',
-                style: TextStyle(fontSize: 16,color: Color(0xFFFFFFFF)),
+                style: TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)),
               ),
               SizedBox(height: 10),
               Padding(
