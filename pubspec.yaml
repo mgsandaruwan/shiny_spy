@@ -62,6 +62,14 @@ flutter:
   assets:
     - images/Vector.png
     - images/google.png
+    - images/nivea.jpeg
+    - images/cocobutter.jpg
+    - images/facewash.jpg
+    - images/deodrant.jpg
+    - images/dryskin.jpg
+    - images/pimple.jpeg
+    - images/skintype.jpg
+    - images/menskin.jpg
 
 
 

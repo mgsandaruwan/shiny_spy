@@ -14,7 +14,8 @@ class popupscreen extends StatelessWidget {
   }
 
   contentBox(context) {
-    return Stack(
+    return SingleChildScrollView(
+      child: Stack(
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(left: 20, top: 20, right: 20, bottom: 20),
@@ -40,12 +41,8 @@ class popupscreen extends StatelessWidget {
                 'Your oiliness level is',
                 style: TextStyle(fontSize: 16,color: Color(0xFFFFFFFF)),
               ),
-              SizedBox(height: 20),
-              Text(
-                'Level 01',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Color(0xFFEFE8A2)),
-              ),
-              SizedBox(height: 60),
+              // TextField for inputting the level
+              SizedBox(height: 40),
               Text(
                 'To get the detailed report',
                 style: TextStyle(fontSize: 16,color: Color(0xFFFFFFFF)),
@@ -76,7 +73,8 @@ class popupscreen extends StatelessWidget {
             ],
           ),
         ),
-      ],
+      ]
+      ),
     );
   }
 }
