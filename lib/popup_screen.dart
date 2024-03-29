@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'signUpscreen.dart';
+
 class popupscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -60,11 +62,11 @@ class popupscreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => popupscreen()),
+                        MaterialPageRoute(builder: (context) => SignUpScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFEFE8A2), // Button color
+                      backgroundColor: Color(0xFFEFE8A2), // Button color
                     ),
                     child: Text(
                       'Log In',

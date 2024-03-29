@@ -1,7 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:shinespy/createaccountscreen.dart';
+import 'package:shinespy/loginscreen.dart';
+import 'package:shinespy/signUpscreen.dart';
 import 'package:shinespy/welcome_screen.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(shinespy());
 }
 
