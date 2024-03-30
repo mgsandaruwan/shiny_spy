@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shinespy/pages/home.dart';
 
-import '../pages/article.dart';
+import '../pages/articlepage.dart';
 import '../pages/settings.dart';
-import '../pages/shop.dart';
+import '../pages/shoppage.dart';
+
 
 
 class BottomNav extends StatefulWidget {
