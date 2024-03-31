@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "526252732121",
+    "project_id": "shinyspy-92103",
+    "storage_bucket": "shinyspy-92103.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526252732121:android:c2ba0d881210ff6dd398c8",
+        "android_client_info": {
+          "package_name": "com.example.shinespy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpjoyKNj82GQyeJLuab9f5taXE7g5r9ck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

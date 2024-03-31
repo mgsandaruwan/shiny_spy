@@ -56,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFEFE8A2), // Button color
+                      backgroundColor: Color(0xFFEFE8A2), // Button color
                     ),
                     child: Text(
                       'Get Started',

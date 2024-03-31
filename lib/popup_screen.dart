@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import"signup.dart";
+=======
+import 'package:url_launcher/url_launcher.dart';
+import 'signUpscreen.dart';
+
+>>>>>>> basuru
 class popupscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,22 +36,47 @@ class popupscreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.grey, // You can change the color of the rectangle
                 ),
-                child: Icon(
-                  Icons.camera_alt, // Camera icon
-                  size: 100,
-                  color: Colors.white,
+
+                  child: Icon(
+                    Icons.camera_alt, // Camera icon
+                    size: 100,
+                    color: Colors.white,
+                  ),
+              ),
+              SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () async{
+                  const url ='webcam-penzwadsfrpzwpg3qsv4iw.streamlit.app';
+                  final Uri uri =Uri(scheme: 'http',host:url);
+                  if (!await launchUrl(uri, mode: LaunchMode.externalApplication)){
+                    throw "Can not launch url";
+                  }
+
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFFEFE8A2), // Button color
+                ),
+                child: Text(
+                  'Open Camera',
+                  style: TextStyle(fontSize: 18.0, color: Color(0xFF000000)),
                 ),
               ),
               SizedBox(height: 30),
               Text(
                 'Your oiliness level is',
+<<<<<<< HEAD
                 style: TextStyle(fontSize: 16,color: Color(0xFFFFFFFF)),
               ),
               // TextField for inputting the level
               SizedBox(height: 40),
+=======
+                style: TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)),
+              ),
+              SizedBox(height: 60),
+>>>>>>> basuru
               Text(
                 'To get the detailed report',
-                style: TextStyle(fontSize: 16,color: Color(0xFFFFFFFF)),
+                style: TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)),
               ),
               SizedBox(height: 10),
               Padding(
@@ -61,7 +92,7 @@ class popupscreen extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFEFE8A2), // Button color
+                      backgroundColor: Color(0xFFEFE8A2), // Button color
                     ),
                     child: Text(
                       'Log In',

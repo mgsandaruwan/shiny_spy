@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:shinespy/signup.dart'; // Adjust this import according to your project structure
+=======
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
+import 'package:shinespy/pdf.dart';
+
+import 'package:shinespy/signUpscreen.dart';
+import 'package:url_launcher/url_launcher.dart';
+>>>>>>> basuru
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
+=======
+    TextEditingController levelController = TextEditingController(); // Controller for the TextField
+
+>>>>>>> basuru
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
@@ -15,6 +29,7 @@ class HomeScreen extends StatelessWidget {
           ),
           elevation: 0,
           backgroundColor: Colors.black,
+<<<<<<< HEAD
           child: contentBox(context),
         ),
       ),
@@ -24,12 +39,25 @@ class HomeScreen extends StatelessWidget {
         },
         backgroundColor: Colors.transparent, // Button background color
         child: Icon(Icons.headset_mic_outlined,color: Colors.white,), // Icon for the button (chat icon in this case)
+=======
+          child: contentBox(context, levelController), // Pass the controller to the contentBox function
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.transparent, // Button background color
+        child: Icon(Icons.headset_mic_outlined, color: Colors.white), // Icon for the button (chat icon in this case)
+>>>>>>> basuru
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat, // Positioning the button at the bottom right
     );
   }
 
+<<<<<<< HEAD
   Widget contentBox(BuildContext context) {
+=======
+  Widget contentBox(BuildContext context, TextEditingController levelController) {
+>>>>>>> basuru
     return SingleChildScrollView(
       child: Stack(
         children: <Widget>[
@@ -64,6 +92,27 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
+<<<<<<< HEAD
+=======
+                SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () async{
+                    const url ='webcam-penzwadsfrpzwpg3qsv4iw.streamlit.app';
+                    final Uri uri =Uri(scheme: 'http',host:url);
+                    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)){
+                      throw "Can not launch url";
+                    }
+
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFFEFE8A2), // Button color
+                  ),
+                  child: Text(
+                    'Open Camera',
+                    style: TextStyle(fontSize: 18.0, color: Color(0xFF000000)),
+                  ),
+                ),
+>>>>>>> basuru
                 SizedBox(height: 30),
                 Text(
                   'Your oiliness level is',
@@ -72,6 +121,10 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(height: 20),
                 // TextField for inputting the level
                 TextField(
+<<<<<<< HEAD
+=======
+                  controller: levelController, // Assign the controller
+>>>>>>> basuru
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
@@ -102,6 +155,7 @@ class HomeScreen extends StatelessWidget {
                     height: 56.0,
                     child: ElevatedButton(
                       onPressed: () {
+<<<<<<< HEAD
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => SignUpScreen()),
@@ -109,6 +163,35 @@ class HomeScreen extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFFEFE8A2), // Button color
+=======
+                        String? userUid = FirebaseAuth.instance.currentUser?.uid;
+                        if (userUid != null) {
+                          String docid = userUid; // Assuming useruid is defined somewhere
+                          // Store the level in Firestore
+                          FirebaseFirestore.instance.collection('oillevel').doc(docid).set({
+                            'level': int.parse(levelController.text), // Assuming level is stored as an integer
+                            'timestamp': DateTime.now(), // Adding current date and time
+                          }).then((_) {
+                            //Navigate to the next screen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => PdfGenerater(
+                                docId: docid,
+                                level: int.parse(levelController.text),
+                                timestamp: DateTime.now(),)),
+                            );
+                          }).catchError((error) {
+                            // Handle errors if any
+                            print("Error adding level: $error");
+                          });
+                        } else {
+                          // Handle the case when there is no signed-in user
+                          print("Error: No signed-in user.");
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFFEFE8A2), // Button color
+>>>>>>> basuru
                       ),
                       child: Text(
                         'Check Report',

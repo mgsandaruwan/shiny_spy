@@ -10,9 +10,17 @@ class SettingsPage extends StatelessWidget {
       child: Center(
         child: Text(
           "Settings Page",
+<<<<<<< HEAD
           style: TextStyle(color: Colors.white), // Changing font color to white
+=======
+          style: TextStyle(color: Colors.white),
+>>>>>>> basuru
         ),
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> basuru

@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:shinespy/pages/article.dart';
 import 'package:shinespy/pages/home.dart';
 import 'package:shinespy/pages/settings.dart';
 import 'package:shinespy/pages/shop.dart';
+=======
+import 'package:shinespy/pages/home.dart';
+
+import '../pages/articlepage.dart';
+import '../pages/settings.dart';
+import '../pages/shoppage.dart';
+
+>>>>>>> basuru
 
 
 class BottomNav extends StatefulWidget {
@@ -33,7 +42,11 @@ class _BottomNavState extends State<BottomNav> {
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+<<<<<<< HEAD
         backgroundColor: Colors.gray2,
+=======
+        backgroundColor: Colors.grey,
+>>>>>>> basuru
         onTap: onTap,
         currentIndex: currentIndex,
         selectedItemColor: Colors.black,
@@ -50,4 +63,8 @@ class _BottomNavState extends State<BottomNav> {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> basuru
