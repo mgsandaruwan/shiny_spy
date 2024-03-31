@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -74,8 +75,13 @@ class ProductCard extends StatelessWidget {
                       ),
                       SizedBox(width: 10),
                       TextButton(
-                        onPressed: () {
-                          // Add button functionality
+                        onPressed: () async{
+                          const url ='www.aliexpress.com';
+                          final Uri uri =Uri(scheme: 'http',host:url);
+                          if (!await launchUrl(uri, mode: LaunchMode.externalApplication)){
+                            throw "Can not launch url";
+                          }
+
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFEFE8A2)),

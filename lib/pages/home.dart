@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
 import 'package:shinespy/pdf.dart';
 
 import 'package:shinespy/signUpscreen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -66,6 +67,24 @@ class HomeScreen extends StatelessWidget {
                     Icons.camera_alt,
                     size: 100,
                     color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () async{
+                    const url ='webcam-penzwadsfrpzwpg3qsv4iw.streamlit.app';
+                    final Uri uri =Uri(scheme: 'http',host:url);
+                    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)){
+                      throw "Can not launch url";
+                    }
+
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFFEFE8A2), // Button color
+                  ),
+                  child: Text(
+                    'Open Camera',
+                    style: TextStyle(fontSize: 18.0, color: Color(0xFF000000)),
                   ),
                 ),
                 SizedBox(height: 30),
