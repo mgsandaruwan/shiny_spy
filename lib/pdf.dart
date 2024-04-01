@@ -74,7 +74,7 @@ class PdfGenerater extends StatelessWidget {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xFFEFE8A2), // Set button background color
+                        backgroundColor: Color(0xFFEFE8A2), // Set button background color
                       ),
                     ),
                     SizedBox(height: 20), // Add SizedBox below the button
@@ -99,24 +99,52 @@ class PdfGenerater extends StatelessWidget {
             child: pw.Column(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               children: [
-                pw.Text(
-                  'Oil Level Report',
-                  style: pw.TextStyle(fontSize: 35, color: PdfColors.blue,),
+                pw.Container(
+                  alignment: pw.Alignment.center, // Align the text within the container
+                  child: pw.Text(
+                    'Oil Level Report',
+                    style: pw.TextStyle(fontSize: 35, color: PdfColors.blue),
+                  ),
                 ),
-                pw.SizedBox(height: 20),
-                pw.Text(
-                  'Document ID: $docId',
-                  style: pw.TextStyle(fontSize: 18),
+                pw.SizedBox(height: 50),
+                pw.Row(
+                  children: [
+                    pw.Text(
+                      'Document ID: ',
+                      style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold),
+                    ),
+                    pw.Text(
+                      '$docId',
+                      style: pw.TextStyle(fontSize: 18),
+                    ),
+                  ],
                 ),
+
                 pw.SizedBox(height: 10),
-                pw.Text(
-                  'Level: $level',
-                  style: pw.TextStyle(fontSize: 18),
-                ),
+              pw.Row(
+                children: [
+                  pw.Text(
+                    'Level: ',
+                    style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold),
+                  ),
+                  pw.Text(
+                    '$level',
+                    style: pw.TextStyle(fontSize: 18),
+                  ),
+                ],
+              ),
                 pw.SizedBox(height: 10),
-                pw.Text(
-                  'Timestamp: ${timestamp.toString()}',
-                  style: pw.TextStyle(fontSize: 18),
+                pw.Row(
+                  children: [
+                    pw.Text(
+                      'Date & Time: ',
+                      style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold),
+                    ),
+                    pw.Text(
+                      '${timestamp.toString()}',
+                      style: pw.TextStyle(fontSize: 18),
+                    ),
+                  ],
                 ),
               ],
             ),
