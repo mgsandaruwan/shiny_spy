@@ -1,16 +1,7 @@
-# shinespy
+# ShineSpy
 
-A new Flutter project.
+This is ShineSpy Mobile app created for IPCV Practicle assignment.
 
-## Getting Started
+## About ShineSpy
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The ShineSpy app is designed to check the oiliness of our skin. Here we have divided the oiliness of the skin into 3 levels namely level 1, level 2 and level 3. Not only that, we suggest some treatments to make your skin attractive.
