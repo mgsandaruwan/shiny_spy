@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
+import 'package:shinespy/pages/tensorflow.dart';
 import 'package:shinespy/pdf.dart';
 
 import 'package:shinespy/signUpscreen.dart';
@@ -78,12 +79,11 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () async{
-                    const url ='webcam-penzwadsfrpzwpg3qsv4iw.streamlit.app';
-                    final Uri uri =Uri(scheme: 'http',host:url);
-                    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)){
-                      throw "Can not launch url";
-                    }
-
+                    // Navigate to LiveSkin Oilyness detecttion Face Cam
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LiveSkinDetection()),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFEFE8A2), // Button color

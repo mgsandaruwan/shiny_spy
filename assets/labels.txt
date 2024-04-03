@@ -1,0 +1,4 @@
+face detected- dry skin(oilyness level 1)
+face detected- normal skin(oilyness level 2)
+face detected- oily skin (oilyness level 3)
+face not detected -(no oilyness level)

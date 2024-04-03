@@ -49,6 +49,11 @@ dependencies:
   path_provider: ^2.1.2
   open_file: ^3.3.2
   url_launcher: ^6.2.4
+  image_picker: ^1.0.7
+  tflite: ^1.1.2
+  tflite_flutter: ^0.10.4
+  camera: ^0.10.5+9
+  path: ^1.9.0
 
 dev_dependencies:
   flutter_test:
@@ -85,6 +90,8 @@ flutter:
     - images/skintype.jpg
     - images/menskin.jpg
     - images/skint.jpg
+    - assets/model_unquant.tflite
+    - assets/labels.txt
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
