@@ -157,13 +157,13 @@ class _LiveSkinDetectionState extends State<LiveSkinDetection> {
               ? Container()
               : _outputs.isNotEmpty
                   ? Align(
-                      alignment: Alignment.topCenter,
+                      alignment: Alignment.bottomCenter,
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: Text(
                           _outputs[0]["label"],
                           style:
-                              TextStyle(color: Colors.yellow, fontSize: 20.0),
+                              TextStyle(color: Color(0xFFEFE8A2), fontSize: 20.0),
                         ),
                       ),
                     )
