@@ -90,6 +90,12 @@ flutter:
     - images/skintype.jpg
     - images/menskin.jpg
     - images/skint.jpg
+    - images/basuru.png
+    - images/kesara.png
+    - images/govindu.png
+    - images/tharindu.png
+    - images/thilina.png
+    - images/dasuni.png
     - assets/model_unquant.tflite
     - assets/labels.txt
 

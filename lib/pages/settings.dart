@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shinespy/pages/termsandconditionpage.dart';
 
 import '../popup_screen.dart';
+import 'aboutUspage.dart';
+import 'licensespage.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -29,33 +32,14 @@ class SettingsPage extends StatelessWidget {
                 color: Colors.white,
               ),
               title: Text(
-                "Contact Support",
+                "About Us",
                 style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,),
               ),
               onTap: () {
-                // Handle FAQs action
-              },
-            ),
-          ),
-          SizedBox(height: 20,),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.yellow.withOpacity(0.2), // Adjust the opacity value as needed
-              borderRadius: BorderRadius.circular(10), // Adjust the radius as needed
-            ),
-            // Adjust the radius as needed
-            child: ListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 16),
-              leading: Icon(
-                Icons.description, // Replace with the desired icon
-                color: Colors.white,
-              ),
-              title: Text(
-                "Terms of Privacy Policy",
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,),
-              ),
-              onTap: () {
-                // Handle FAQs action
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUsPage()),
+                );
               },
             ),
           ),
@@ -95,37 +79,18 @@ class SettingsPage extends StatelessWidget {
             child: ListTile(
               contentPadding: EdgeInsets.symmetric(horizontal: 16),
               leading: Icon(
-                Icons.copyright_outlined, // Replace with the desired icon
-                color: Colors.white,
-              ),
-              title: Text(
-                "CopyRight Information",
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,),
-              ),
-              onTap: () {
-                // Handle FAQs action
-              },
-            ),
-          ),
-          SizedBox(height: 20,),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.yellow.withOpacity(0.2), // Adjust the opacity value as needed
-              borderRadius: BorderRadius.circular(10), // Adjust the radius as needed
-            ),
-            // Adjust the radius as needed
-            child: ListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 16),
-              leading: Icon(
                 Icons.newspaper_outlined, // Replace with the desired icon
                 color: Colors.white,
               ),
               title: Text(
-                "Licenses",
+                "Terms & Conditions",
                 style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,),
               ),
               onTap: () {
-                // Handle FAQs action
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TermsandConditionPage()),
+                );
               },
             ),
           ),

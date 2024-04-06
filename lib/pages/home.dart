@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
               MaterialPageRoute(builder: (context) => Chatbot()),
             );
           },
-        backgroundColor: Colors.lightGreenAccent, // Button background color
+        backgroundColor: Color(0xFFFBC02D), // Button background color
         child: Icon(Icons.three_p, color: Colors.black), // Icon for the button (chat icon in this case)
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat, // Positioning the button at the bottom right
