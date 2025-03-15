@@ -9,9 +9,6 @@ Presenting **ShineSpy**, a revolutionary mobile app designed to enhance your ski
 - **🛍 Tailored Product Recommendations** – Get personalized skincare product suggestions based on your skin’s oiliness level.  
 - **💬 Interactive Chatbot** – Engage with our chatbot, equipped with predefined answers to common skincare questions, providing instant support and guidance.  
 
-## 🖼 UI Preview  
-
-![ShineSpy UI Screenshot 1](assets/ui_screenshot1.png)  
 ## Demonstration
 
 https://github.com/basuru07/shiny_spy/assets/114737698/81f93e96-bddf-4520-a68c-59f6cdd08ba2
